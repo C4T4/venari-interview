@@ -112,15 +112,7 @@ const WorldSlider = ({}) => {
         next slide from parent demo
       </button>
 
-      <div
-        style={{
-          width: "80%",
-          margin: "auto",
-          marginTop: "30px",
-        }}
-      >
-        <Slider ref={childRef} slides={slides}></Slider>
-      </div>
+      <Slider ref={childRef} slides={slides}></Slider>
     </>
   );
 };

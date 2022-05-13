@@ -1,9 +1,11 @@
 .sliderContainer {
     display: flex;
-
+    width: 80%;
+    min-height: 500px;
+    margin-top: 10px;
 }
 
- .arrow {
+.arrow {
     max-width: 100%;
     align-self: center;
     height: 100%;
@@ -19,11 +21,10 @@
     min-height: 400px;
     height: auto;
     width: 100%;
-    overflow-x : hidden;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     will-change: transform, opacity;
 }
 
@@ -35,9 +36,10 @@
     text-align: left;
     float: left;
     color: white;
-    font-family: IBM Plex Sans,sans-serif;
+    font-family: IBM Plex Sans, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
+
 .subTitle {
     color: white;
     font-size: 24px;
@@ -50,17 +52,19 @@
     font-size: 16px;
 }
 
-.worldAvatar {    
+.worldAvatar {
     width: 64px;
     height: 64px;
     margin-right: 5px;
     border-radius: 200px;
 }
-.line{
+
+.line {
     width: 100%;
     position: relative;
     border: 1px solid rgba(153, 172, 194, 0.15);
 }
+
 .row {
     flex-direction: row;
     display: flex;
@@ -72,6 +76,7 @@
 .column {
     width: 100%;
 }
+
 .dirction {
     border: none;
     border-radius: 50%;
@@ -87,7 +92,7 @@
     padding-bottom: 6px;
     transition: all .1s linear;
 
-    &:hover{
+    &:hover {
         background: rgba(61, 80, 102, 0.8);
     }
 }
@@ -110,6 +115,7 @@
 .center {
     text-align: center;
 }
+
 .moreText {
     font-size: 18px;
     font-weight: 500;
@@ -117,38 +123,49 @@
     text-decoration: underline;
     font-family: 'IBM Plex Sans', sans-serif;
 }
+
+.slidesFix>div {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 @media (max-width: 800px) {
     .row {
         flex-direction: column;
     }
 
+    .dirction {
+        &:hover {
+            background: rgba(61, 80, 102, 0.4);
+        }
+    }
+
     .arrow {
         position: absolute;
-        height: auto;
-        bottom: -5rem;
+        align-self: initial;
+        height: 0;
+        bottom: 0;
+        z-index: 1;
     }
 
     .arrowLeft {
-        left: 0;
-        margin-left: 10px;
+        left: 0px;
+
     }
 
     .arrowRight {
-        right: 0;
-        margin-right: 10px;
+        right: 0px;
     }
+
     .sliderContent {
-        overflow-x: initial
+        min-height: 900px;
     }
+
+    .sliderContainer {
+        width: 90%;
+
+    }
+
 }
-
-
-
-.test > div{
-  height: 100%;
-
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-

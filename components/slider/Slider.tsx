@@ -16,11 +16,6 @@ interface Slides {
   slides: Array<ReactElement>;
 }
 
-interface RefObject {
-  setIndex: (index: number) => void;
-  index: number;
-}
-
 const Slider = forwardRef(({ slides }: Slides, ref) => {
   const [slideIndex, setSlideIndex] = useState<number>(0);
   const [slideDirection, setSlideDirection] = useState<string>("");
@@ -30,6 +25,7 @@ const Slider = forwardRef(({ slides }: Slides, ref) => {
     () => ({
       setIndex: (index: number) => {
         if (index < slides.length) {
+          setSlideDirection("right");
           setSlideIndex(index);
         } else {
           setSlideIndex(0);
@@ -111,17 +107,15 @@ const Slider = forwardRef(({ slides }: Slides, ref) => {
         </div>
 
         <div className={styles.sliderContent}>
-          <div>
-            {transitions((style, i) => {
-              const Slide = slides[i];
+          {transitions((style, i) => {
+            const Slide = slides[i];
 
-              return (
-                <div className={styles.test}>
-                  {cloneElement(Slide, { style: style })}
-                </div>
-              );
-            })}
-          </div>
+            return (
+              <div className={styles.slidesFix}>
+                {cloneElement(Slide, { style: style })}
+              </div>
+            );
+          })}
         </div>
 
         <div
